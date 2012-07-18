@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="NPRNews.PageContainer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NPRNews"
+    xmlns:data="using:NPRNews.Data"
+    xmlns:common="using:NPRNews.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar x:Name="musicController" Padding="10,0,10,0" IsSticky="True" IsOpen="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="LeftCommands" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
+                    <Button x:Name="Back" AutomationProperties.Name="Back" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel x:Name="RightCommands" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+    <Page.TopAppBar>
+        <AppBar x:Name="navigationController" Padding="10,0,10,0" IsSticky="True" IsOpen="True" Visibility="Visible" Background="#FF272727">
+            <Grid Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="LeftPanel" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Text="NPR Music" FontSize="40"/>
+                </StackPanel>
+                <StackPanel x:Name="MiddlePanel" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Image Source="Assets/divider.png" Stretch="Fill" Width="2" Height="60"/>
+                    <HyperlinkButton Content="Articles" FontSize="30" Foreground="White"/>
+                    <Image Source="Assets/divider.png" Stretch="Fill" Width="2" Height="60"/>
+                    <HyperlinkButton Content="Videos" FontSize="30" Foreground="White"/>
+                    <Image Source="Assets/divider.png" Stretch="Fill" Width="2" Height="60"/>
+                    <HyperlinkButton Content="Programs" FontSize="30" Foreground="White"/>
+                    <Image Source="Assets/divider.png" Stretch="Fill" Width="2" Height="60"/>
+                   
+                </StackPanel>
+                <StackPanel x:Name="RightPanel" Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+                    <Button x:Name="Favorite" Style="{StaticResource FavoriteAppBarButtonStyle}" Tag="Favorite"/>
+                    <Button x:Name="Search" Style="{StaticResource SearchAppBarButtonStyle}" Tag="Search"/>
+                    <Button x:Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}" Tag="Settings"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.TopAppBar>
+
+    <Grid Background="White" d:IsHidden="True">
+        <Frame x:Name="contentFrame"/>
+    </Grid>
+</Page>
